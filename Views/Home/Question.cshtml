@@ -1,0 +1,57 @@
+﻿@model IEnumerable<DemoAcculynx.Models.Item>
+
+@{
+    ViewBag.Title = "Question";
+}
+
+<h2>Questions</h2>
+
+<table class="table">
+    <tr>
+        <th>
+Question
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.link)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.is_answered)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.is_accepted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.question_id)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.title)
+    </td>
+    <td>
+        <a href="@item.link">Answer</a>
+    
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.is_answered)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.is_accepted)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.question_id)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+    </td>
+</tr>
+}
+
+</table>

@@ -14,6 +14,13 @@ namespace DemoAcculynx.Models
         public string[] tags { get; set; }
         public string link { get; set; }
         public string title { get; set; }
+        public string is_answered { get; set; }
+
+        public string  is_accepted { get; set; }
+
+        public string question_id { get; set; }
+
+
 
     }
 }

@@ -39,8 +39,39 @@ namespace DemoAcculynx.Controllers
             }
 
 
+
+
             return View(reservationList.items);
         }
+
+
+        public async Task<ActionResult> Question(string tag)
+        {
+            Root reservationList = new Root();
+            HttpClientHandler handler = new HttpClientHandler();
+            handler.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
+            using (var httpClient = new HttpClient(handler))
+            {
+
+                
+                var apiUrl = ("https://api.stackexchange.com/2.3/questions?order=desc&sort=activity&tagged=" + tag + "&site=stackoverflow&filter=!0Wd8xO54ur4PONC.sD0EZf13v");
+
+                //setup HttpClient
+                httpClient.BaseAddress = new Uri(apiUrl);
+                httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                //make request
+                var response = await httpClient.GetStringAsync(apiUrl);
+                reservationList = JsonConvert.DeserializeObject<Root>(response);
+
+            }
+
+
+
+
+            return View(reservationList.items);
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Overall Goal.";
