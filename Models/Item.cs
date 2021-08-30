@@ -19,6 +19,7 @@ namespace DemoAcculynx.Models
         public string  is_accepted { get; set; }
 
         public string question_id { get; set; }
+        public string creation_date { get; set; }
 
 
 

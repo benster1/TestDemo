@@ -9,7 +9,7 @@
 <table class="table">
     <tr>
         <th>
-Question
+            Question
         </th>
         <th>
             @Html.DisplayNameFor(model => model.link)
@@ -23,6 +23,9 @@ Question
         </th>
         <th>
             @Html.DisplayNameFor(model => model.question_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.creation_date)
         </th>
         <th></th>
     </tr>
@@ -47,9 +50,13 @@ Question
         @Html.DisplayFor(modelItem => item.question_id)
     </td>
     <td>
-        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        @if (item.creation_date == null) { 
+        <span>Date not available</span>
+        }
+    </td>
+    <td>
+        @Html.ActionLink("Guess", "Guess", new { id = item.question_id }) |
+    
     </td>
 </tr>
 }
