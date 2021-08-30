@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 using Newtonsoft.Json;
 
-namespace InAndOut.Models
+namespace DemoAcculynx.Models
 {
     public class Item
     {
