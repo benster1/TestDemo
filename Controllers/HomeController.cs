@@ -18,7 +18,7 @@ namespace DemoAcculynx.Controllers
         {
             return View();
         }
-        public async Task<ActionResult> Items()
+        public async Task<ActionResult> Items( string tag)
         {
             Root reservationList = new Root();
             HttpClientHandler handler = new HttpClientHandler();
@@ -26,7 +26,7 @@ namespace DemoAcculynx.Controllers
             using (var httpClient = new HttpClient(handler))
             {
 
-                var apiUrl = ("https://api.stackexchange.com/2.3/questions?order=desc&sort=activity&tagged=C%23&site=stackoverflow&filter=!m6Wy7AN10y(E0TV5Yo_nHoqJ20Cfn6aVpiS(pp-2rJ4LZaSp.x0D45Te");
+                var apiUrl = ("https://api.stackexchange.com/2.3/questions?order=desc&sort=activity&tagged=" + tag + "&site=stackoverflow&filter=!m6Wy7AN10y(E0TV5Yo_nHoqJ20Cfn6aVpiS(pp-2rJ4LZaSp.x0D45Te");
 
                 //setup HttpClient
                 httpClient.BaseAddress = new Uri(apiUrl);
